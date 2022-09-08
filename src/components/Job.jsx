@@ -7,6 +7,7 @@ const Job = ({ data }) => (
     style={{ border: '1px solid #00000033', borderRadius: 4 }}
   >
     <Col xs={3}>
+    <i className="bi bi-suit-heart-fill mr-5"></i>
       <Link to={`/${data.company_name}`}>{data.company_name}</Link>
     </Col>
     <Col xs={9}>

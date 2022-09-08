@@ -1,9 +1,30 @@
 const initialState = {
-  favourites: []
-}
+  favorites: {
+    list: [],
+  },
+};
 
 const mainReducer = (state = initialState, action) => {
-  console.log('ciao');
-}
+  switch (action.type) {
+    case "ADD_TO_FAVORITES":
+      return {
+        ...state,
+        favorites: {
+          ...state.favorites,
+          list: [...state.favorites.list, action.payload]
+        }
+      };
+    case "REMOVE_FROM_FAVORITES":
+      return {
+        ...state,
+        favorites: {
+          ...state.favorites,
+          list: state.favorites.list.filter((el) => el._id !== action.payload)
+        }
+      };
+    default:
+      return state;
+  }
+};
 
-export default mainReducer
+export default mainReducer;
